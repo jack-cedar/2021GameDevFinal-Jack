@@ -3,7 +3,7 @@
 // {entity} from './entityHandler.js'
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
-let attack = document.getElementById("button01");
+
 attack.addEventListener("click", onAttack);
 function onAttack(){
     playerMain.attack(target);
