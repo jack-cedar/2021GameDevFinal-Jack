@@ -1,4 +1,4 @@
-export class player {
+export default class player {
     constructor(){
         this.hp = 100;
         this.power = 5;
