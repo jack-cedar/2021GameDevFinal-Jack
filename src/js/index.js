@@ -1,6 +1,6 @@
-//import {player} from './player.js'
-//import {enemy} from './enemy.js'
-// {entity} from './entityHandler.js'
+import {player} from './player.js'
+import {enemy} from './enemy.js'
+import {entity} from './entityHandler.js'
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
 
