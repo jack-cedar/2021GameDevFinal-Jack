@@ -1,4 +1,4 @@
-import {gameMap} from './'
+import {gameMap} from './map_data.js'
 
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
