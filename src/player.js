@@ -1,20 +1,9 @@
-export class player {
-    constructor(){
-        this.hp = 100;
-        this.power = 5;
-        this.level = 0;
-        this.xp = 0;
-        this.xpToLvlup = 100;
-    }
-    attack(target){
-        target.hp -= this.power;
-        console.log(target.hp)
-    }
-    levelUp(){
-    }
-    update(){
-        if(this.xp >= this.xpToLvlup){
-            this.levelUp()
-        }
+export class player{
+    constructor(tileX, tileY){
+        this.currentTile = [1, 1];
+        this.nextTile = [1, 1];
+        this.timeToMove = 0;
+        this.position=[x, y];
+       
     }
 }
