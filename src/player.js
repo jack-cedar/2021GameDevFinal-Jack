@@ -1,9 +1,12 @@
 export class player{
-    constructor(tileX, tileY){
-        this.currentTile = [1, 1];
-        this.nextTile = [1, 1];
-        this.timeToMove = 0;
-        this.position=[x, y];
-       
+    constructor(){
+        this.lastPos = 
+        this.position = [4,3];
+        this.dimentions = [16, 16]
+    }
+    
+    
+    draw(ctx, tileX, tileY){
+        ctx.fillRect(tileX*this.position[0], tileY*this.position[1], tileX ,tileY)
     }
 }
