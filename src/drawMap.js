@@ -38,7 +38,7 @@ export function drawGame_map(tileX, tileY, mapY, mapX, ctx){
                     ctx.drawImage(stone_set, 0, 32, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
                     break; 
                 case 0x11:
-                    ctx.drawImage(stone_set, 0, 0, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
+                    //ctx.drawImage(stone_set, 0, 0, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
                     break;
                 case 0x12:
                     ctx.drawImage(stone_set, 32, 0, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
