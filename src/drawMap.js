@@ -46,9 +46,6 @@ export function drawGame_map(tileX, tileY, mapY, mapX, ctx){
                 case 0x13:
                     ctx.drawImage(stone_set, 32, 32, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
                     break;
-                case 0x13:
-                    ctx.drawImage(stone_set, 32, 32, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
-                    break;
             }
         }
     }
