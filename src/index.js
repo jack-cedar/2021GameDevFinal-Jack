@@ -39,14 +39,12 @@ document.addEventListener("keydown", keyPressed)
     let pTime = 1;
     function gameLoop(cTime){
         if (ctx == null) {return;}
-        
         let dTime = cTime - pTime;
         pTime = cTime;
         ctx.clearRect(0, 0, 800, 400);
-        requestAnimationFrame(gameLoop)
         drawGame_map(tileX, tileY, mapY, mapX, ctx)
         player01.draw(ctx, tileX, tileY)
-        console.log(gameMap[mapIndex(player01.position[0],player01.position[1])])
+        requestAnimationFrame(gameLoop)
         
     }
     gameLoop();
