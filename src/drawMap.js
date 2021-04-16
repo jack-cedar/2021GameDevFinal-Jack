@@ -4,7 +4,7 @@ export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx){
         for(var x = 0; x < mapX; x++){
             switch(gameMap[((y*mapX)+x)]){
                 case 0x00:
-                    ctx.drawImage(stone_set, 112, 112, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
+                    ctx.drawImage(stone_set, 80, 16, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
                     break;
                 case 0x01:
                     ctx.drawImage(stone_set, 16, 16, tileX, tileY,x*tileX, y*tileY, tileX, tileY);
