@@ -5,7 +5,7 @@ import {gameMap} from './map_data.js';
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
 let player01 = new player()
-
+var stone_set = document.getElementById("stone_tileset");
 let tileX = 16;
 let tileY = 16;
 let mapX = 50;
@@ -42,7 +42,7 @@ document.addEventListener("keydown", keyPressed)
         let dTime = cTime - pTime;
         pTime = cTime;
         ctx.clearRect(0, 0, 800, 400);
-        drawGame_map(tileX, tileY, mapY, mapX, ctx)
+        drawGame_map(stone_set,tileX, tileY, mapY, mapX, ctx)
         player01.draw(ctx, tileX, tileY)
         requestAnimationFrame(gameLoop)
         
