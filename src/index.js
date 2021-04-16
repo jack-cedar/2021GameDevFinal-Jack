@@ -1,7 +1,6 @@
 import {drawGame_map} from './drawMap.js';
 import {player} from './player.js';
-import {gameMap} from './map_data.js';
-    
+import {gameMap} from './map_data.js';  
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
 let player01 = new player()
@@ -34,8 +33,6 @@ document.addEventListener("keydown", keyPressed)
                         player01.position[0]--
                     }  
                 break;}}
-
-
     let pTime = 1;
     function gameLoop(cTime){
         if (ctx == null) {return;}
@@ -45,7 +42,6 @@ document.addEventListener("keydown", keyPressed)
         drawGame_map(stone_set,tileX, tileY, mapY, mapX, ctx)
         player01.draw(ctx, tileX, tileY)
         requestAnimationFrame(gameLoop)
-        
     }
     gameLoop();
     
