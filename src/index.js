@@ -38,7 +38,11 @@ document.addEventListener("keydown", keyPressed)
                         player01.position[0]--
                         
                     } 
-                    console.log((mapIndex(player01.position[0], player01.position[1])+1))
+                    else if((mapIndex(player01.position[0], player01.position[1])+1)==251){
+                        map_data = gameMap01;
+                        player01.position[0]=((player01.position[0])-(mapX-1))
+                    }
+
                 break;}}
     let pTime = 1;
     function gameLoop(cTime){
