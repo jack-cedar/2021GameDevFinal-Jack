@@ -8,7 +8,7 @@ let player01 = new player()
 var stone_set = document.getElementById("stone_tileset");
 let tileX = 32;
 let tileY = 32;
-let mapX = 25;
+let mapX = 30;
 let mapY = 20;
 function mapIndex(x, y){return((y * mapX)+ x)}
 document.addEventListener("keydown", keyPressed)
