@@ -1,4 +1,5 @@
 import {gameMap01} from './map_data.js'
+import {gameMap02} from './map_data.js'
 let map_data = gameMap01
 export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx){
     for(var y = 0; y < mapY; y++){
@@ -46,6 +47,10 @@ export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx){
                 case 0x0d:
                     ctx.drawImage(stone_set, 32, 32, 16, 16,x*tileX, y*tileY, tileX, tileY);
                     break;
+                case((mapIndex(player01.position[0], player01.position[1])+1)==275):
+                        map_data = GAMEmAP02
+                        player01.position[0]=((player01.position[0])-(mapX-1))
+                    
                 default: 
                 ctx.drawImage(stone_set, 16, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);
                 break;
