@@ -1,9 +1,10 @@
-import {gameMap} from './map_data.js'
+import {gameMap01} from './map_data.js'
+let map_data = gameMap01
 export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx){
     for(var y = 0; y < mapY; y++){
         for(var x = 0; x < mapX; x++){
             if (x == mapX){x += (mapX - x)}
-            switch(gameMap[((y*mapX)+x)]){
+            switch(map_data[((y*mapX)+x)]){
                 case 0x00:
                     ctx.drawImage(stone_set, 80, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);
                     break;
