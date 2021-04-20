@@ -21,7 +21,8 @@ document.addEventListener("keydown", keyPressed)
                 case 68:
                     if (gameMap01[mapIndex(player01.position[0],player01.position[1])+1]==0){
                         player01.position[0]++
-                    }  
+                    }
+                    console.log(mapIndex(player01.position[0],player01.position[1])+1)
                 break;
                 case 83:
                     if (gameMap01[mapIndex(player01.position[0],player01.position[1])+mapX]==0){
