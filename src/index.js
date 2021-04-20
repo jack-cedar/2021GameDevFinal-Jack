@@ -15,12 +15,12 @@ document.addEventListener("keydown", keyPressed)
             function keyPressed(){
                 switch (event.keyCode){
                 case 87:
-                    if (gameMap01[mapIndex(player01.position[0],player01.position[1])-mapX]==0){
+                    if (map_data[mapIndex(player01.position[0],player01.position[1])-mapX]==0){
                         player01.position[1]--
                     }
                 break;
                 case 68:
-                    if (gameMap01[mapIndex(player01.position[0],player01.position[1])+1]==0){
+                    if (map_data[mapIndex(player01.position[0],player01.position[1])+1]==0){
                         player01.position[0]++
                     }
                     else if((mapIndex(player01.position[0], player01.position[1])+1)==275){
@@ -29,12 +29,12 @@ document.addEventListener("keydown", keyPressed)
                     }
                 break;
                 case 83:
-                    if (gameMap01[mapIndex(player01.position[0],player01.position[1])+mapX]==0){
+                    if (map_data[mapIndex(player01.position[0],player01.position[1])+mapX]==0){
                         player01.position[1]++
                     }
                 break;
                 case 65:
-                    if (gameMap01[mapIndex(player01.position[0],player01.position[1])-1]==0){
+                    if (map_data[mapIndex(player01.position[0],player01.position[1])-1]==0){
                         player01.position[0]--
                     }  
                 break;}}
