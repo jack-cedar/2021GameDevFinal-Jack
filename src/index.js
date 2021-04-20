@@ -16,13 +16,15 @@ document.addEventListener("keydown", keyPressed)
                 case 87:
                     if (gameMap01[mapIndex(player01.position[0],player01.position[1])-mapX]==0){
                         player01.position[1]--
-                    }  
+                    }
                 break;
                 case 68:
                     if (gameMap01[mapIndex(player01.position[0],player01.position[1])+1]==0){
                         player01.position[0]++
                     }
-                    console.log(mapIndex(player01.position[0],player01.position[1])+1)
+                    if((mapIndex(player01.position[0],player01.position[1])+1)==275){
+                        player01.position[0]=((player01.position[0])-mapX)
+                    }
                 break;
                 case 83:
                     if (gameMap01[mapIndex(player01.position[0],player01.position[1])+mapX]==0){
