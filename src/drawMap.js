@@ -48,8 +48,9 @@ export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx){
                     ctx.drawImage(stone_set, 32, 32, 16, 16,x*tileX, y*tileY, tileX, tileY);
                     break;
                 case((mapIndex(player01.position[0], player01.position[1])+1)==275):
-                        map_data = GAMEmAP02
-                        player01.position[0]=((player01.position[0])-(mapX-1))
+                        map_data = gamemap02;
+                        player01.position[0]=((player01.position[0])-(mapX-1));
+                    break;
                     
                 default: 
                 ctx.drawImage(stone_set, 16, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);
