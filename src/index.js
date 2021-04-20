@@ -18,6 +18,7 @@ document.addEventListener("keydown", keyPressed)
                     if (map_data[mapIndex(player01.position[0],player01.position[1])-mapX]==0){
                         player01.position[1]--
                     }
+                    console.log(mapIndex(player01.position[0],player01.position[1])-mapX)
                 break;
                 case 68:
                     if (map_data[mapIndex(player01.position[0],player01.position[1])+1]==0){
