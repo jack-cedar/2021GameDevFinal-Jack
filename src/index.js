@@ -38,7 +38,7 @@ document.addEventListener("keydown", keyPressed)
         if (ctx == null) {return;}
         let dTime = cTime - pTime;
         pTime = cTime;
-        ctx.clearRect(0, 0, 800, 400);
+        ctx.clearRect(0, 0, 800, 640);
         drawGame_map(stone_set,tileX, tileY, mapY, mapX, ctx)
         player01.draw(ctx, tileX, tileY)
         requestAnimationFrame(gameLoop)
