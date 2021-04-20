@@ -40,7 +40,7 @@ document.addEventListener("keydown", keyPressed)
                     } 
                     else if((mapIndex(player01.position[0], player01.position[1])+1)==251){
                         map_data = gameMap01;
-                        player01.position[0]=((player01.position[0])-(mapX-1))
+                        player01.position[0]=((player01.position[0])+(mapX-1))
                     }
 
                 break;}}
