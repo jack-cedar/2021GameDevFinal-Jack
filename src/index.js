@@ -49,7 +49,7 @@ document.addEventListener("keydown", keyPressed)
         if (ctx == null) {return;}
         let dTime = cTime - pTime;
         pTime = cTime;
-        ctx.clearRect(0, 0, 800, 640);
+        ctx.clearRect(0, 0, 960, 640);
         drawGame_map(stone_set,tileX, tileY, mapY, mapX, ctx, map_data)
         player01.draw(ctx, tileX, tileY)
         requestAnimationFrame(gameLoop)
