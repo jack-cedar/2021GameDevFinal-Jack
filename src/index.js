@@ -36,7 +36,9 @@ document.addEventListener("keydown", keyPressed)
                 case 65:
                     if (map_data[mapIndex(player01.position[0],player01.position[1])-1]==0){
                         player01.position[0]--
-                    }  
+                        
+                    } 
+                    console.log((mapIndex(player01.position[0], player01.position[1])+1))
                 break;}}
     let pTime = 1;
     function gameLoop(cTime){
