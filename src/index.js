@@ -1,6 +1,5 @@
 import {drawGame_map} from './drawMap.js';
-import {player} from './player.js';
-import {gameMap} from './map_data.js';  
+import {player} from './player.js'; 
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
 let player01 = new player()
