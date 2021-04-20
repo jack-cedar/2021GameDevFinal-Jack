@@ -22,7 +22,7 @@ document.addEventListener("keydown", keyPressed)
                     if (gameMap01[mapIndex(player01.position[0],player01.position[1])+1]==0){
                         player01.position[0]++
                     }
-                    if((mapIndex(player01.position[0])+=1)==275){
+                    if((mapIndex(player01.position[0], player01.position[1])+=1)==275){
                         player01.position[0]=((player01.position[0])-(mapX-1))
                     }
                 break;
