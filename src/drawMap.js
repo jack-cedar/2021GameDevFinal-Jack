@@ -1,3 +1,5 @@
+import {gameMap01} from './map_data.js'
+import {gameMap02} from './map_data.js'
 export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx, map_data){
     for(var y = 0; y < mapY; y++){
         for(var x = 0; x < mapX; x++){
@@ -44,6 +46,8 @@ export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx, map_data)
                 case 0x0d:
                     ctx.drawImage(stone_set, 32, 32, 16, 16,x*tileX, y*tileY, tileX, tileY);
                     break;
+                    
+                    
                 default: 
                 ctx.drawImage(stone_set, 16, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);
                 break;
