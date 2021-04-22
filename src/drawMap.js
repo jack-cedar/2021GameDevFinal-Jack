@@ -51,9 +51,7 @@ export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx, map_data)
                 break;
                 case 0x0f:
                     ctx.drawImage(stone_set, 64, 48, 16, 16,x*tileX, y*tileY, tileX, tileY);
-                break;
-                    
-                    
+                break;   
                 default: 
                 ctx.drawImage(stone_set, 16, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);
                 break;
