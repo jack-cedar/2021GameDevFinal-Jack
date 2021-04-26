@@ -1,33 +1,41 @@
 import {mapIndex} from './map_data.js'
-import {gameMap01, gameMap02} from './map_data.js';  
+import {changeMap_data} from './index.js'
+
 export class player{
-    constructor(){
-        this.position = [4,3];
+    constructor(map_data){
+        this.cPos = [4,3];
         this.pPos = [4,3];
         this.nPos =  [4,3];
         this.dimentions = [16, 16];
-        this.currentMap=gameMap01;
+        this.cMap= map_data;
         this.CAN_MOVE = false;
-        this.HAS_KEY = false;
-        this.checkNpos = function checkNpos(){return this.currentMap[mapIndex(this.nPos[0], this.nPos[1])]}
+        this.HAS_KEY = false;  
     }
     move(){
-        console.log(this.HAS_KEY)
-        switch (this.checkNpos()) {
-            case 0x00:this.CAN_MOVE = true;break;
-            case 0x0e:this.CAN_MOVE = true; this.HAS_KEY = true,this.currentMap[mapIndex(this.nPos[0], this.nPos[1])]=0x00; break;
-            case 0x0f: if(this.HAS_KEY==true){this.CAN_MOVE = true;this.currentMap[mapIndex(this.nPos[0], this.nPos[1])]=0x00};break;
-            default :this.CAN_MOVE = false;break;
+        console.log(this.cMap[mapIndex(this.nPos[0], this.nPos[1])])
+        
+        switch (this.cMap[mapIndex(this.nPos[0], this.nPos[1])]){
+            case undefined:changeMap_data();
+            case 0x00:this.CAN_MOVE = 1;break;
+            case 0x10:this.CAN_MOVE = 1;break;
+            case 0x0e:this.CAN_MOVE = 1;this.HAS_KEY = true;this.cMap[mapIndex(this.nPos[0], this.nPos[1])]=0x00; break;
+            case 0x0f:this.CAN_MOVE = 0;if(this.HAS_KEY==true){this.CAN_MOVE = true;this.cMap[mapIndex(this.nPos[0], this.nPos[1])]=0x00};break;
+            default  :this.CAN_MOVE = 0; 
         }
-        if (this.CAN_MOVE == true) {
-            this.pPos = [this.position[0], this.position[1]];
-            this.position = [this.nPos[0], this.nPos[1]];
-        } 
-        this.nPos = [this.position[0],this.position[1]]
+        //if (this.cMap[mapIndex(this.cPos[0], this.cPos[1])]==0x10){}
+        if(this.CAN_MOVE == true){
+            this.pPos = [this.cPos[0], this.cPos[1]];
+            this.cPos = [this.nPos[0], this.nPos[1]];
+        }   else{this.nPos = [this.cPos[0],this.cPos[1]]}
+        this.CAN_MOVE = false;
+        //console.log(this.CAN_MOVE)
+        console.log(this.cPos)
+        
     }
     draw(ctx, tileX, tileY){
-        ctx.fillRect(tileX*this.position[0], tileY*this.position[1], tileX ,tileY)
+        ctx.fillRect(tileX*this.cPos[0], tileY*this.cPos[1], tileX ,tileY)
     }
-    update(){
+    update(map_data){
+        this.cMap = map_data;
     }
 }

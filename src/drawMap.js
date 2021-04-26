@@ -1,6 +1,5 @@
-import {gameMap01} from './map_data.js'
-import {gameMap02} from './map_data.js'
-export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx, map_data){
+var stone_set = document.getElementById("stone_tileset")
+export function drawMap_data(tileX, tileY, mapY, mapX, ctx, map_data){
     for(var y = 0; y < mapY; y++){
         for(var x = 0; x < mapX; x++){
              switch(map_data[((y*mapX)+x)]){
@@ -51,6 +50,9 @@ export function drawGame_map(stone_set, tileX, tileY, mapY, mapX, ctx, map_data)
                 break;
                 case 0x0f:
                     ctx.drawImage(stone_set, 64, 48, 16, 16,x*tileX, y*tileY, tileX, tileY);
+                break;
+                case 0x10:
+                    ctx.drawImage(stone_set, 80, 15, 16, 16,x*tileX, y*tileY, tileX, tileY);
                 break;   
                 default: 
                 ctx.drawImage(stone_set, 16, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);
