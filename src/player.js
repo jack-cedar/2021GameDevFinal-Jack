@@ -9,11 +9,18 @@ export class player{
         this.dimentions = [16, 16];
         this.cMap= map_data;
         this.CAN_MOVE = false;
-        this.HAS_KEY = false;  
+        this.HAS_KEY = false;
+        
+        this.stats = {
+            hp: 20,
+            dmg: 5,
+        }  
+    }
+    attack(){
+        alert('test')
     }
     move(){
-        console.log(this.cMap[mapIndex(this.nPos[0], this.nPos[1])])
-        
+        //console.log(this.cMap[mapIndex(this.nPos[0], this.nPos[1])])
         switch (this.cMap[mapIndex(this.nPos[0], this.nPos[1])]){
             case undefined:changeMap_data();
             case 0x00:this.CAN_MOVE = 1;break;
@@ -29,13 +36,19 @@ export class player{
         }   else{this.nPos = [this.cPos[0],this.cPos[1]]}
         this.CAN_MOVE = false;
         //console.log(this.CAN_MOVE)
-        console.log(this.cPos)
+        //console.log(this.cPos)
         
     }
     draw(ctx, tileX, tileY){
+        ctx.fillStyle = 'black';
         ctx.fillRect(tileX*this.cPos[0], tileY*this.cPos[1], tileX ,tileY)
     }
-    update(map_data){
+    update(map_data, IS_FIGHTING){
         this.cMap = map_data;
+        switch (IS_FIGHTING) {
+            case false: this.move();
+                break;
+        }
+    
     }
 }
