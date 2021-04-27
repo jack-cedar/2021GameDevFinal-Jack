@@ -16,8 +16,9 @@ export class player{
             dmg: 5,
         }  
     }
-    attack(){
-        alert('test')
+    attack(target){
+        target.hp -= this.stats.dmg
+        if (target.hp <= 0) {target.cPos[0] = 10000, target.cPos[1] = 10000;} 
     }
     move(){
         //console.log(this.cMap[mapIndex(this.nPos[0], this.nPos[1])])
@@ -48,6 +49,7 @@ export class player{
         switch (IS_FIGHTING) {
             case false: this.move();
                 break;
+        
         }
     
     }
