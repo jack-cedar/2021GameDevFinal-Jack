@@ -8,7 +8,6 @@ import {button} from './button.js'
 let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext('2d');
 //Declaring Variables & Objects//
-
 let tileX = 32;
 let tileY = 32;
 let mapX = 30;
@@ -21,7 +20,7 @@ let target = enemy;
 let IS_FIGHTING = false;
 let rat = new enemy(10, 2)
 target = rat;
-//Input Handler//
+//Input Handlers//
 
 canvas.addEventListener('click', clicked)
 document.addEventListener("keydown", keyPressed)
@@ -36,8 +35,6 @@ function keyPressed(){
     case 83:player01.nPos[1]+=1;player01.update();break;
     case 65:player01.nPos[0]-=1;player01.update();break;}}
 }
-    
-
     function clicked(event){
     const rect = canvas.getBoundingClientRect()
     let x = event.clientX-rect.left;

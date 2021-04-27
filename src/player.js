@@ -18,6 +18,7 @@ export class player{
     }
     attack(target){
         target.hp -= this.stats.dmg
+       this.stats.hp -= target.dmg
         if (target.hp <= 0) {target.cPos[0] = 10000, target.cPos[1] = 10000;} 
     }
     move(){
