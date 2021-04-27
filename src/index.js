@@ -21,10 +21,8 @@ let IS_FIGHTING = false;
 let rat = new enemy(10, 2)
 target = rat;
 //Input Handlers//
-
 canvas.addEventListener('click', clicked)
 document.addEventListener("keydown", keyPressed)
-
 function keyPressed(){
     if (IS_FIGHTING != false){
     IS_FIGHTING = false 
@@ -45,7 +43,7 @@ function keyPressed(){
 }
 //Game Loop//
 function gameLoop(cTime){
-    if (ctx == null) {return;}
+    if (ctx == null){return;}
     let dTime = cTime - pTime;
     pTime = cTime;
     
