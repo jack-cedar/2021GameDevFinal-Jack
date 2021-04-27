@@ -6,12 +6,14 @@ export class player{
         this.cPos = [4,3];
         this.pPos = [4,3];
         this.nPos =  [4,3];
+        this.dPos = [4,3]
         this.dimentions = [16, 16];
         this.cMap= map_data;
         this.CAN_MOVE = false;
         this.HAS_KEY = false;
         
         this.stats = {
+            hpMax:20,
             hp: 20,
             dmg: 5,
         }  
