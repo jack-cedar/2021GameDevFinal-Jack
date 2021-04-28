@@ -16,11 +16,10 @@ let mapY = 20;
 let pTime = 1;
 let map_data = gameMap01;
 let player01 = new player(map_data)
+let rat = new enemy(10, 2)
 let atkButton = new button(180,540, 15, 'blue')
 let target = enemy;
 let IS_FIGHTING = false;
-let rat = new enemy(10, 2)
-
 
 
 target = rat;

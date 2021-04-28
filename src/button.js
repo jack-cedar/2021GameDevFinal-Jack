@@ -15,7 +15,6 @@ export class button{
     }
     buttonClicked(mouseX, mouseY, IS_FIGHTING){
         if (IS_FIGHTING == false){return}
-
         let distance = Math.sqrt(((mouseX-this.xPos)*(mouseX-this.xPos))+((mouseY-this.yPos)*(mouseY-this.yPos)))
         if (distance < this.radius)
         return "clicked";

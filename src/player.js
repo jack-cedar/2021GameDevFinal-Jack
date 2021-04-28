@@ -20,8 +20,10 @@ export class player{
     }
     attack(target){
         target.hp -= this.stats.dmg
-       this.stats.hp -= target.dmg
-        if (target.hp <= 0) {target.cPos[0] = 10000, target.cPos[1] = 10000;} 
+        if (target.hp <= 0) {target.cPos[0] = 10000, target.cPos[1] = 10000;}else{
+            this.stats.hp -= target.dmg
+        }
+        
     }
     move(){
         //console.log(this.cMap[mapIndex(this.nPos[0], this.nPos[1])])
