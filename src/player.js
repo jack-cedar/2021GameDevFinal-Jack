@@ -18,6 +18,12 @@ export class player{
             dmg: 5,
         }  
     }
+    distanceToTarget(target){
+        let distance = Math.sqrt(
+        ((target.cPos[0]-this.cPos[0])*(target.cPos[0]-this.cPos[0]))+
+        ((target.cPos[1]-this.cPos[1])*(target.cPos[1]-this.cPos[1])))
+        return distance;
+    }
     attack(target){
         target.hp -= this.stats.dmg
         if (target.hp <= 0) {target.cPos[0] = 10000, target.cPos[1] = 10000;}else{
