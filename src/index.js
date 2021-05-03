@@ -1,5 +1,5 @@
 //Imports//
-import {mapIndex, gameMap01, gameMap02} from './map_data.js'
+import {mapIndex, map} from './map_data.js'
 import {drawMap_data} from './drawMap.js';
 import {player} from './player.js';
 import {enemy} from './enemy.js';
@@ -12,38 +12,56 @@ ctx.font = "32px arial";
 
 ctx.imageSmoothingEnabled = false;
 //Declaring Variables & Objects//
+let xOffset = 10
+let yOffset = 3
 let enableLinesB = document.getElementById("enableLines")
 let tileX = 64;
 let tileY = 64;
 let mapX = 30;
 let mapY = 20;
 let pTime = 1;
-let map_data = gameMap01;
-let player01 = new player(map_data)
+let map_data = map;
+
 let rat = new enemy(10, 2)
 let atkButton = new button(180,540, 15, 'blue')
 let target = enemy;
 let linesEnabled = false
 let IS_FIGHTING = false;
 
+let screenMap = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+]
+let player01 = new player(map_data, screenMap)
 
 target = rat;
 //Input Handlers//
 canvas.addEventListener("click", clicked)
 document.addEventListener("keydown", keyPressed)
-enableLinesB.addEventListener("click", enableLines=>{if (linesEnabled == true){linesEnabled=false; return}linesEnabled=true;})
+//enableLinesB.addEventListener("click", enableLines=>{if (linesEnabled == true){linesEnabled=false; return}linesEnabled=true;})
 function keyPressed(){
- 
+    
+    //console.log(screenMap)
     //console.log(event.keyCode)
+    
     if (IS_FIGHTING != false){
     IS_FIGHTING = false 
     }else{
     switch (event.keyCode){
-    case 87:player01.nPos[1]-=1;player01.update();break;
-    case 68:player01.nPos[0]+=1;player01.update();break;
-    case 83:player01.nPos[1]+=1;player01.update();break;
-    case 65:player01.nPos[0]-=1;player01.update();break;
+    case 87:player01.nPos[1]-=1;if(player01.move() == true){yOffset++};break;
+    case 68:player01.nPos[0]+=1;if(player01.move() == true){xOffset--};break;
+    case 83:player01.nPos[1]+=1;if(player01.move() == true){yOffset--};break;
+    case 65:player01.nPos[0]-=1;if(player01.move() == true){xOffset++};break;
 }}
+
 }
     function clicked(event){
     const rect = canvas.getBoundingClientRect()
@@ -60,33 +78,23 @@ function gameLoop(cTime){
     
     ctx.clearRect(0, 0, 960, 640);
     
-    drawMap_data(tileX, tileY, mapY, mapX, ctx, map_data) 
+    drawMap_data(tileX, tileY, mapY, mapX, ctx, screenMap) 
+  
     ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
     rat.draw(ctx, tileX, tileY);
+    
     player01.draw(ctx, tileX, tileY);
     
     combatScreen()
     if (linesEnabled == true){
         drawDistanceLines()
     }
-    player01.update(map_data, IS_FIGHTING)
-    playerView()
+    player01.update(screenMap, map_data, playerView(),)
     
     requestAnimationFrame(gameLoop);
   
 }
 gameLoop();
-//Change Map//
-export function changeMap_data(){
-    if (map_data == gameMap01 && player01.cPos[0]==9 && player01.cPos[1]==0){
-        map_data=gameMap02;
-        player01.nPos[0]=9,player01.nPos[1]=19;
-        }
-    else if (map_data==gameMap02 && player01.cPos[0]==9 && player01.cPos[1]==19){
-        map_data=gameMap01;
-        player01.nPos[0]=9,player01.nPos[1]=0;
-    }
-    }
 //Draw the Battle menu//
 function combatScreen(){
     if (player01.distanceToTarget(target) == 1 || player01.distanceToTarget(target) == 1)  {
@@ -120,30 +128,14 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
-
 function playerView(){
-     let setTile = (mapIndex(player01.nPos[0], player01.nPos[1]))-60;
-     for(var y = 0; y < 10; y++){
-        for(var x = 0; x < 15; x++){
-            screenMap[0]
-
-
+     var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+     for(var y = 0; y < 10; y++){    
+        for(var x = 0; x <= 15; x++){
+            screenMap[(mapX*y)+x]=map_data[setTile+(mapX*y)+x]
         }}
-     
-
 }
-let screenMap = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-]
+
 
     
         
