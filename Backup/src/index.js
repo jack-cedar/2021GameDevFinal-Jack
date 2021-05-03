@@ -13,8 +13,8 @@ ctx.font = "32px arial";
 ctx.imageSmoothingEnabled = false;
 //Declaring Variables & Objects//
 let enableLinesB = document.getElementById("enableLines")
-let tileX = 64;
-let tileY = 64;
+let tileX = 32;
+let tileY = 32;
 let mapX = 30;
 let mapY = 20;
 let pTime = 1;
@@ -33,7 +33,6 @@ canvas.addEventListener("click", clicked)
 document.addEventListener("keydown", keyPressed)
 enableLinesB.addEventListener("click", enableLines=>{if (linesEnabled == true){linesEnabled=false; return}linesEnabled=true;})
 function keyPressed(){
- 
     //console.log(event.keyCode)
     if (IS_FIGHTING != false){
     IS_FIGHTING = false 
@@ -70,7 +69,6 @@ function gameLoop(cTime){
         drawDistanceLines()
     }
     player01.update(map_data, IS_FIGHTING)
-    playerView()
     
     requestAnimationFrame(gameLoop);
   
@@ -120,30 +118,6 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
-
-function playerView(){
-     let setTile = (mapIndex(player01.nPos[0], player01.nPos[1]))-60;
-     for(var y = 0; y < 10; y++){
-        for(var x = 0; x < 15; x++){
-            screenMap[0]
-
-
-        }}
-     
-
-}
-let screenMap = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-]
 
     
         
