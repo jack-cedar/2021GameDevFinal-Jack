@@ -85,12 +85,12 @@ function gameLoop(cTime){
     
     
     player01.draw(ctx, tileX, tileY);
-    
+    var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
     combatScreen()
     if (linesEnabled == true){
         drawDistanceLines()
     }
-    player01.update(screenMap, map_data, playerView(),)
+    player01.update(screenMap, map_data, setTile, playerView())
     
     requestAnimationFrame(gameLoop);
   
