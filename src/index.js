@@ -95,6 +95,7 @@ function gameLoop(cTime){
     requestAnimationFrame(gameLoop);
   
 }
+
 gameLoop();
 //Draw the Battle menu//
 function combatScreen(){
@@ -129,7 +130,7 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
-export var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+
 function playerView(){
     setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
      
