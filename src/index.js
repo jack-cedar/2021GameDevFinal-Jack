@@ -41,7 +41,7 @@ let screenMap = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ]
 let player01 = new player(map_data, screenMap)
-var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+
 target = rat;
 //Input Handlers//
 canvas.addEventListener("click", clicked)
@@ -90,12 +90,11 @@ function gameLoop(cTime){
     if (linesEnabled == true){
         drawDistanceLines()
     }
-    player01.update(screenMap, map_data, setTile, playerView())
+    player01.update(screenMap, map_data, playerView(),)
     
     requestAnimationFrame(gameLoop);
   
 }
-
 gameLoop();
 //Draw the Battle menu//
 function combatScreen(){
@@ -130,10 +129,8 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
-
 function playerView(){
-    setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
-     
+     var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
      for(var y = 0; y < 10; y++){    
         for(var x = 0; x <= 15; x++){
             screenMap[(mapX*y)+x]=map_data[setTile+(mapX*y)+x]
