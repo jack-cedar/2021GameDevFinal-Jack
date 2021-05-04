@@ -70,6 +70,7 @@ function keyPressed(){
     if(atkButton.buttonClicked(x,y,IS_FIGHTING)=="clicked"){
         player01.attack(target)
     }
+    rat.draw(ctx, tileX, tileY);
 }
 //Game Loop//
 function gameLoop(cTime){
@@ -81,7 +82,7 @@ function gameLoop(cTime){
     drawMap_data(tileX, tileY, mapY, mapX, ctx, screenMap) 
   
     ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
-    rat.draw(ctx, tileX, tileY);
+    
     
     player01.draw(ctx, tileX, tileY);
     
