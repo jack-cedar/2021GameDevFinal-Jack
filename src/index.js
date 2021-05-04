@@ -129,8 +129,9 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
+export var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
 function playerView(){
-     export var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+     
      for(var y = 0; y < 10; y++){    
         for(var x = 0; x <= 15; x++){
             screenMap[(mapX*y)+x]=map_data[setTile+(mapX*y)+x]
