@@ -32,7 +32,7 @@ export class player{
     move(){
         
         console.log(this.HAS_KEY)
-        switch (this.gameMap[mapIndex(this.nPos[0], this.nPos[1])]){
+        switch (this.cMap[mapIndex(this.nPos[0], this.nPos[1])]){
             case 0x00:this.CAN_MOVE = 1;break;
             case 0x10:this.CAN_MOVE = 1;break;
             case 0x0e:this.CAN_MOVE = 1;this.HAS_KEY = true; this.gameMap[mapIndex(this.nPos[0], this.nPos[1])]=0x00;;break;
