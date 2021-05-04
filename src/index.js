@@ -42,7 +42,7 @@ let screenMap = [
 ]
 let player01 = new player(map_data, screenMap)
 var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
-target = rat;c
+target = rat;
 //Input Handlers//
 canvas.addEventListener("click", clicked)
 document.addEventListener("keydown", keyPressed)
