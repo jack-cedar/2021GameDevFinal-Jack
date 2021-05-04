@@ -42,7 +42,7 @@ let screenMap = [
 ]
 let player01 = new player(map_data, screenMap)
 var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
-target = rat;
+target = rat;c
 //Input Handlers//
 canvas.addEventListener("click", clicked)
 document.addEventListener("keydown", keyPressed)
@@ -82,7 +82,7 @@ function gameLoop(cTime){
     drawMap_data(tileX, tileY, mapY, mapX, ctx, screenMap) 
   
     ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
-    setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+    
     
     player01.draw(ctx, tileX, tileY);
     
@@ -132,7 +132,7 @@ function drawDistanceLines(){
 }
 
 function playerView(){
-    
+    setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
      
      for(var y = 0; y < 10; y++){    
         for(var x = 0; x <= 15; x++){
