@@ -51,7 +51,7 @@ function keyPressed(){
     
     //console.log(screenMap)
     //console.log(event.keyCode)
-    
+    console.log(xOffset, yOffset)
     if (IS_FIGHTING != false){
     IS_FIGHTING = false 
     }else{
@@ -83,20 +83,21 @@ function gameLoop(cTime){
   
     ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
     
-    
     player01.draw(ctx, tileX, tileY);
     
     combatScreen()
     if (linesEnabled == true){
         drawDistanceLines()
     }
-    player01.update(screenMap, map_data, playerView(),)
+    playerView()
+    player01.update(screenMap, setTile, playerView())
     
     requestAnimationFrame(gameLoop);
   
 }
 gameLoop();
 //Draw the Battle menu//
+
 function combatScreen(){
     if (player01.distanceToTarget(target) == 1 || player01.distanceToTarget(target) == 1)  {
         IS_FIGHTING = true;
@@ -129,8 +130,9 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
+export var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
 function playerView(){
-     var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+    setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
      for(var y = 0; y < 10; y++){    
         for(var x = 0; x <= 15; x++){
             screenMap[(mapX*y)+x]=map_data[setTile+(mapX*y)+x]
