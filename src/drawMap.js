@@ -1,5 +1,5 @@
 var stone_set = document.getElementById("stone_tileset")
-export function drawMap_data(tileX, tileY, mapY, mapX, ctx, map_data){
+export function drawMap_data(tileX, tileY, mapY, mapX, ctx, map_data, target){
     for(var y = 0; y < mapY; y++){
         for(var x = 0; x < mapX; x++){
              switch(map_data[((y*mapX)+x)]){
@@ -52,7 +52,7 @@ export function drawMap_data(tileX, tileY, mapY, mapX, ctx, map_data){
                     ctx.drawImage(stone_set, 64, 48, 16, 16,x*tileX, y*tileY, tileX, tileY);
                 break;
                 case 0x10:
-                    ctx.drawImage(stone_set, 80, 15, 16, 16,x*tileX, y*tileY, tileX, tileY);
+                    target.draw(ctx, tileX, tileY , x, y)
                 break;   
                 default: 
                 ctx.drawImage(stone_set, 16, 16, 16, 16,x*tileX, y*tileY, tileX, tileY);

@@ -46,12 +46,12 @@ target = rat;
 //Input Handlers//
 canvas.addEventListener("click", clicked)
 document.addEventListener("keydown", keyPressed)
-//enableLinesB.addEventListener("click", enableLines=>{if (linesEnabled == true){linesEnabled=false; return}linesEnabled=true;})
+enableLinesB.addEventListener("click", enableLines=>{if (linesEnabled == true){linesEnabled=false; return}linesEnabled=true;})
 function keyPressed(){
     
     //console.log(screenMap)
     //console.log(event.keyCode)
-    console.log(xOffset, yOffset)
+    //console.log(xOffset, yOffset)
     if (IS_FIGHTING != false){
     IS_FIGHTING = false 
     }else{
@@ -70,7 +70,7 @@ function keyPressed(){
     if(atkButton.buttonClicked(x,y,IS_FIGHTING)=="clicked"){
         player01.attack(target)
     }
-    rat.draw(ctx, tileX, tileY);
+    
 }
 //Game Loop//
 function gameLoop(cTime){
@@ -79,27 +79,28 @@ function gameLoop(cTime){
     
     ctx.clearRect(0, 0, 960, 640);
     
-    drawMap_data(tileX, tileY, mapY, mapX, ctx, screenMap) 
-  
-    ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
+    drawMap_data(tileX, tileY, mapY, mapX, ctx, screenMap, target) 
+    drawHUD()
     
     player01.draw(ctx, tileX, tileY);
     
-    combatScreen()
+   
     if (linesEnabled == true){
         drawDistanceLines()
     }
-    playerView()
-    player01.update(screenMap, setTile, playerView())
     
+    
+    player01.update(screenMap, setTile, playerView())
+    IS_FIGHTING = false;
+    combatScreen()
+    playerView()
     requestAnimationFrame(gameLoop);
   
 }
 gameLoop();
 //Draw the Battle menu//
-
 function combatScreen(){
-    if (player01.distanceToTarget(target) == 1 || player01.distanceToTarget(target) == 1)  {
+    if (player01.distanceToTarget(target) == 0)  {
         IS_FIGHTING = true;
         let targethpBar = 250-((250/(target.hpMax)*(target.hpMax-target.hp)))
         let playerhpBar = 250-((250/(player01.stats.hpMax)*(player01.stats.hpMax-player01.stats.hp)))
@@ -137,6 +138,14 @@ function playerView(){
         for(var x = 0; x <= 15; x++){
             screenMap[(mapX*y)+x]=map_data[setTile+(mapX*y)+x]
         }}
+}
+function drawHUD(){
+    ctx.fillStyle = 'black';
+
+    ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
+    ctx.fillText("Keys: "+player01.KEYS,640, 96);
+    
+
 }
 
 
