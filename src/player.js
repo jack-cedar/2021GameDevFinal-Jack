@@ -29,7 +29,6 @@ export class player{
         if (target.hp <= 0) {target.cPos[0] = 10000, target.cPos[1] = 10000;this.gameMap[this.setTile+(30*4)+7]=0x00, this.update}else{
             this.stats.hp -= target.dmg
         }
-        console.log(target.cPos)
     }
     move(){
         
@@ -68,4 +67,4 @@ export class player{
         }
     }
 }
-//
+
