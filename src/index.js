@@ -27,7 +27,7 @@ let atkButton = new button(180,540, 15, 'blue')
 let target = enemy;
 let linesEnabled = false
 let IS_FIGHTING = false;
-
+var getPlayerPos = (mapIndex(player01.cPos[0], player01.cPos[1]));
 let screenMap = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -131,9 +131,11 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
-export var setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+getPlayerPos = (mapIndex(player01.cPos[0], player01.cPos[1]));
+
+export var setTile = getPlayerPos-((mapX*(yOffset))+(mapX+(xOffset)));
 function playerView(){
-    setTile = (mapIndex(player01.cPos[0], player01.cPos[1]))-((mapX*(yOffset))+(mapX+(xOffset)));
+    setTile = getPlayerPos-((mapX*(yOffset))+(mapX+(xOffset)));
      for(var y = 0; y < 10; y++){    
         for(var x = 0; x <= 15; x++){
             screenMap[(mapX*y)+x]=map_data[setTile+(mapX*y)+x]
