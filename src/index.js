@@ -142,7 +142,7 @@ function playerView(){
 function drawHUD(){
     ctx.fillStyle = 'black';
 
-    ctx.fillText("Player Health: "+player01.stats.hp,640, 64);
+    ctx.fillText("HP: "+player01.stats.hp+"/"+player01.stats.hpMax,640, 64);
     ctx.fillText("Keys: "+player01.KEYS,640, 96);
     
 
