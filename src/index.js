@@ -131,7 +131,7 @@ function drawDistanceLines(){
     ctx.closePath();
    
 }
-getPlayerPos = (mapIndex(player01.cPos[0], player01.cPos[1]));
+
 
 export var setTile = getPlayerPos-((mapX*(yOffset))+(mapX+(xOffset)));
 function playerView(){
