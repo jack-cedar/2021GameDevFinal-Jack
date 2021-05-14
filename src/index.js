@@ -27,7 +27,7 @@ let atkButton = new button(180,540, 15, 'blue')
 let target = enemy;
 let linesEnabled = false
 let IS_FIGHTING = false;
-var getPlayerPos = (mapIndex(player01.cPos[0], player01.cPos[1]));
+
 let screenMap = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -41,7 +41,7 @@ let screenMap = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ]
 let player01 = new player(map_data, screenMap)
-
+var getPlayerPos = (mapIndex(player01.cPos[0], player01.cPos[1]));
 target = rat;
 //Input Handlers//
 canvas.addEventListener("click", clicked)
