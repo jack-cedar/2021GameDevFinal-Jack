@@ -2,37 +2,26 @@
     <head>
         <title></title>
         <style>
- 
-      
-          
             #myCanvas{
                 
-                border: solid black 1px;
-                background-image: url(../assets/cave_background.png);
+                border: solid black 3px;
+                width: 720;
+                height: 480;
+            
                 image-rendering: crisp-edges;
-                image-rendering: -moz-crisp-edges;
-                image-rendering: pixelated;
-                background-size: 300%;
                 }
-            #Tileset{
-                
-                display: none;
-            }
+
             body { 
             background-color: #313c4c; 
-           
-        
             }
         </style>
         <meta charset="UTF-8">
     </head>
     <body>
-        <img id="Tileset"src="../assets/stone_tileset.png">
-        <input type="button" value="EnableLines" id="enableLines">
-        <div  id="container"style="text-align: center;">
-        <canvas id="myCanvas" width="960" height="640"></canvas>
+        <img style="display: none;" id="Tileset"src="../assets/Sprite-0004.png">
+        <div id="container"style="text-align: center;">
+        <canvas id="myCanvas" width="240" height="160"></canvas>
         </div>
-        <script src="./index.js" type="module" ></script>
+        <script src="./index.js" ></script>
     </body>
 </html>
-test
