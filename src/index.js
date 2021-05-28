@@ -15,8 +15,7 @@ var tileW = 8
 var tileH = 8
 var mapW = screenW/tileW
 var mapH = screenH/tileH
-var currentMap = 2
-var mapData = changeMapTo(currentMap)
+var mapData = changeMapTo()
 var tileScale = 1
 //Creating Player Instance//
 let player01 = new player(5, 5, 1, mapData, screenW, screenH)
@@ -24,10 +23,14 @@ let player01 = new player(5, 5, 1, mapData, screenW, screenH)
 let wasd = new input()
 wasd.keyboard(player01)
 //Game Loop//
+
 function gameLoop(){
     ctx.clearRect(0, 0, screenW, screenH);
+    mapData = changeMapTo(player01.cMap)
+    player01.map = mapData
     player01.update()
     drawMap(ctx, mapData, Tileset, tileW, tileH, mapW, mapH, tileScale)
+    
     player01.draw(ctx)
     
     requestAnimationFrame(gameLoop);
